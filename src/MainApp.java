@@ -5,8 +5,8 @@ public class MainApp {
 
 		AltLinkedList<String> altLs = new AltLinkedList<>();
 //		altLs.add("Hello");
-		altLs.add("beautiful");
-		altLs.add("beautiful");
+//		altLs.add("beautiful");
+//		altLs.add("beautiful");
 //		altLs.add("sunny");
 //		altLs.add("perfect");
 //		altLs.add("world");

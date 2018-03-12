@@ -20,6 +20,26 @@ public class AltLinkedList<E> {
 		size++;
 	}
 
+	public void removeFirstElement(Node<E> element) {
+		first = element.next;
+		first.prev = null;
+	}
+
+	public void removeLastElement(Node<E> element) {
+		last = element.prev;
+		last.next = null;
+	}
+
+	public void removeSingleElement() {
+		first = last = null;
+		size--;
+	}
+
+	public void removeElementInTheMiddle(Node<E> element) {
+		element.prev.next = element.next;
+		element.next.prev = element.prev;
+	}
+
 	public void delete(E element) {
 		Node<E> tempNode = first;
 		if (size == 0 && first == null) {
@@ -27,18 +47,14 @@ public class AltLinkedList<E> {
 		} else {
 			while (tempNode != null) {
 				if (size == 1) {
-					first = last = null;
-					size--;
+					removeSingleElement();
 				} else if (element.equals(tempNode.item)) {
 					if (tempNode == first) {
-						first = tempNode.next;
-						first.prev = null;
+						removeFirstElement(tempNode);
 					} else if (tempNode == last) {
-						last = tempNode.prev;
-						last.next = null;
+						removeLastElement(tempNode);
 					} else {
-						tempNode.prev.next = tempNode.next;
-						tempNode.next.prev = tempNode.prev;
+						removeElementInTheMiddle(tempNode);
 					}
 					size--;
 				}
