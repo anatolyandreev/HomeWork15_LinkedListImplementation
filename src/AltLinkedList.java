@@ -60,7 +60,23 @@ public class AltLinkedList<E> {
 				}
 				tempNode = tempNode.getNext();
 			}
-
+		}
+	}
+	
+	public void findElement(E element) {
+		Node<E> tempNode = first;
+		int counter = 0;
+		boolean isFound = false;
+		while (tempNode != null) {
+		if (element.equals(tempNode.item)) {
+			System.out.println("element found at " + counter + " position");
+			isFound = true;
+		}
+		counter++;
+		tempNode = tempNode.getNext();
+		}
+		if (isFound == false) {
+			System.out.println("no such element in the list");
 		}
 	}
 
